@@ -1,0 +1,3 @@
+# MargotBot
+Discord music bot
+:)
