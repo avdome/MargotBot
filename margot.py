@@ -22,7 +22,7 @@ async def on_message(msg):
 
     # user messages
     # consider having Margot put a heart after every message
-    if msg.content.lower() == 'margot':
+    if msg.content.lower() == 'margot' and msg.author.name != 'KEK':
         await msg.channel.send('Margot loves you too <3')
 
 
