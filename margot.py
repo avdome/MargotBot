@@ -22,10 +22,5 @@ async def on_message(msg):
     # consider having Margot put a heart after every message 
     if msg.content == 'margot':   
         await msg.channel.send('Margot loves you too <3')
-    #else:
-#       await msg.channel.send('I am sorry I only speak Australian, I do not understand you. Margot still loves you <3')
 
-# print(os.getenv('TOKEN'))
-
-# client.run('ODk2MjEyMzE0NTM2MTQ4OTkz.YWD0wg.1hTt5RHi8-qmXRquBeF196rhuHU')
 client.run(os.getenv('TOKEN'))  # environment vairable
