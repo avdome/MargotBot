@@ -3,24 +3,27 @@ import os
 from dotenv import load_dotenv
 
 # finds the .env file in the current working directory
-load_dotenv()  
+load_dotenv()
 
 # instance of a client, connects to discord
 client = disc.Client()
 
-@client.event 
+
+@client.event
 async def on_ready():  # printed in terminal when bot is ready to be used
     print('Hello I am {0.user}.'.format(client))
+
 
 @client.event
 async def on_message(msg):
     # do nothing if bot sends message
     if msg.author == client.user:
-        return  
+        return
 
     # user messages
-    # consider having Margot put a heart after every message 
-    if msg.content == 'margot':   
+    # consider having Margot put a heart after every message
+    if msg.content.lower() == 'margot':
         await msg.channel.send('Margot loves you too <3')
 
-client.run(os.getenv('TOKEN'))  # environment vairable
+
+client.run(os.getenv('TOKEN'))  # environment variable
