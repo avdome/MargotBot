@@ -1,1 +1,1 @@
-worker: python margot.py
+worker: python3 margot.py
