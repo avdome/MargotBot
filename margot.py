@@ -44,4 +44,3 @@ async def on_message(msg):
 
 
 client.run(os.getenv('TOKEN'))  # environment variable
-
