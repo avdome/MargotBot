@@ -23,10 +23,15 @@ async def on_message(msg):
     # user messages
     # consider having Margot put a heart after every message
     if msg.content.lower() == 'margot':
-        if msg.author.name == 'alexma22':
-            await msg.channel.send('Margot doesnt love you :(')
-        else:
-            await msg.channel.send('Margot loves you too <3')
+        match msg.author.name:
+            case "alexma22":
+                await msg.channel.send('Margot doesnt love you :(')
+            case "KEK":
+                await msg.channel.send('Margot loves you more than everyone else <3')
+            case "𝒸𝒽𝓊𝓇𝒸𝒽𝑔𝑜𝑒𝓇➀":
+                await msg.channel.send('Margot thinks your cringe')
+            case _:
+                await msg.channel.send('Margot loves you too <3')
 
 
 client.run(os.getenv('TOKEN'))  # environment variable
