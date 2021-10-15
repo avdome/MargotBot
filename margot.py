@@ -1,10 +1,10 @@
 import discord as disc
 import os
 from Math import mhelp, roll
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 # finds the .env file in the current working directory
-load_dotenv()
+# load_dotenv()
 
 # instance of a client, connects to discord
 client = disc.Client()
@@ -29,7 +29,8 @@ async def on_message(msg):
     # roll dice
     if msg.content.lower() == 'help':
         await msg.channel.send(mhelp())
-
+        
+    # user messages
     # consider having Margot put a heart after every message
     if msg.content.lower() == 'margot':
         match msg.author.name:
@@ -43,4 +44,5 @@ async def on_message(msg):
                 await msg.channel.send('Margot loves you too <3')
 
 
-client.run(os.getenv('TOKEN'))  # environment variable
+client.run(os.environ['TOKEN'])  # env var from Heroku server
+# client.run(os.getenv('TOKEN'))  # env var from local .env 
