@@ -1,5 +1,6 @@
 import discord as disc
 import os
+from Math import mhelp, roll
 # from dotenv import load_dotenv
 
 # finds the .env file in the current working directory
@@ -20,6 +21,15 @@ async def on_message(msg):
     if msg.author == client.user:
         return
 
+    # user messages
+    # Math commands
+    if msg.content.lower() == 'roll':
+        await msg.channel.send(roll())
+
+    # roll dice
+    if msg.content.lower() == 'help':
+        await msg.channel.send(mhelp())
+        
     # user messages
     # consider having Margot put a heart after every message
     if msg.content.lower() == 'margot':
