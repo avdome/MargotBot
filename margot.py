@@ -22,6 +22,15 @@ async def on_message(msg):
         return
 
     # user messages
+    
+    # Math commands
+    if msg.content.lower() == 'roll':
+        await msg.channel.send(roll())
+
+    # roll dice
+    if msg.content.lower() == 'help':
+        await msg.channel.send(mhelp())
+
     # consider having Margot put a heart after every message
     if msg.content.lower() == 'margot':
         match msg.author.name:
@@ -33,7 +42,7 @@ async def on_message(msg):
                 await msg.channel.send('Margot thinks your cringe')
             case _:
                 await msg.channel.send('Margot loves you too <3')
-
+    
     if msg.content.lower() == 'mashallah':
         await msg.channel.send('لا إله إلا الله محمد رسول الله')
     
