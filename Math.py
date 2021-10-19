@@ -1,4 +1,6 @@
 import random
+
+
 class Math:
 
     def __init__(self):
@@ -6,7 +8,7 @@ class Math:
 
 
 def roll():
-    return random.randint(1, 6)
+    return 'You rolled a ' + str(random.randint(1, 6)) + ' cutie. :wink:'
 
 
 def mhelp():
