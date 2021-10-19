@@ -1,6 +1,6 @@
 import discord as disc
 import os
-import Math
+from Math import mhelp, roll
 
 # from dotenv import load_dotenv
 
