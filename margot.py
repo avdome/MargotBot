@@ -1,5 +1,6 @@
 import discord as disc
 import os
+import Math
 
 # from dotenv import load_dotenv
 
