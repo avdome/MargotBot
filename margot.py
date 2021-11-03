@@ -1,6 +1,6 @@
 import discord as disc
 import os
-from Math import mhelp, roll
+from Math import *
 
 # from dotenv import load_dotenv
 
@@ -18,17 +18,16 @@ async def on_ready():  # printed in terminal when bot is ready to be used
 
 @client.event
 async def on_message(msg):
+
     # do nothing if bot sends message
     if msg.author == client.user:
         return
 
-    # user messages
-    
-    # Math commands
-    if msg.content.lower() == 'roll':
-        await msg.channel.send(roll())
+    # roll command
+    rollnumber = rollcheck(msg.content.lower())
+    if rollnumber > 0:
+        await msg.channel.send(roll(rollnumber))
 
-    # roll dice
     if msg.content.lower() == 'help':
         await msg.channel.send(mhelp())
 
@@ -43,10 +42,10 @@ async def on_message(msg):
                 await msg.channel.send('Margot thinks your cringe')
             case _:
                 await msg.channel.send('Margot loves you too <3')
-    
+
     if msg.content.lower() == 'mashallah':
         await msg.channel.send('لا إله إلا الله محمد رسول الله')
-    
+
 
 client.run(os.environ['TOKEN'])  # env var from Heroku server
-# client.run(os.getenv('TOKEN'))  # env var from local .env 
+# client.run(os.getenv('TOKEN'))  # env var from local .env
