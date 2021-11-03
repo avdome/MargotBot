@@ -16,8 +16,8 @@ def roll(n: int) -> str:
 def rollcheck(s: str) -> int:
     s = s.split(' ', 1)
 
-    if s[1] == 'roll':
-        return checknum(s[2])
+    if s[0] == 'roll':
+        return checknum(s[1])
     else:
         return 0
 
