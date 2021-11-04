@@ -14,6 +14,10 @@ def roll(n: int) -> str:
 
 # returns a number if the roll syntax is correct, otherwise returns 0.
 def rollcheck(s: str) -> int:
+
+    if s == 'roll':
+        return 6
+
     s = s.split(' ', 1)
 
     if s[0] == 'roll':
