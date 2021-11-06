@@ -1,10 +1,7 @@
 import random
 
 
-class Math:
-
-    def __init__(self):
-        numbers = 0
+"""We do a little Rolling."""
 
 
 # returns a number from 1 to n in a string message.
