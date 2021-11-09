@@ -11,6 +11,8 @@ from Roller import *
 client = disc.Client()
 
 
+#TODO "do a little trolling" sound command.
+
 @client.event
 async def on_ready():  # printed in terminal when bot is ready to be used
     print('Hello I am {0.user}.'.format(client))
