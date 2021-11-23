@@ -41,12 +41,20 @@ async def on_message(msg):
             case "KEK":
                 await msg.channel.send('Margot loves you more than everyone else <3')
             case "𝒸𝒽𝓊𝓇𝒸𝒽𝑔𝑜𝑒𝓇➀":
-                await msg.channel.send('Margot thinks your cringe')
+                # avoid double message for now.
+                # await msg.channel.send('Margot thinks your cringe')
+                a = 'b'
+                # required to avoid error.
             case _:
                 await msg.channel.send('Margot loves you too <3')
 
     if msg.content.lower() == 'mashallah':
         await msg.channel.send('لا إله إلا الله محمد رسول الله')
+
+    if msg.author.name == "𝒸𝒽𝓊𝓇𝒸𝒽𝑔𝑜𝑒𝓇➀":
+        await msg.channel.send('https://media.discordapp.net/attachments/'
+                               '533513796556161046/873834654271152188/'
+                               'TheBadTakeMachine.gif')
 
 
 client.run(os.environ['TOKEN'])  # env var from Heroku server
