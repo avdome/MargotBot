@@ -1,4 +1,4 @@
-from typing_extensions import TypeVarTuple
+# from typing_extensions import TypeVarTuple
 import discord as disc
 import os
 from Roller import *
