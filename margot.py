@@ -22,7 +22,7 @@ async def on_ready():  # printed in terminal when bot is ready to be used
 @client.event
 async def on_message(msg):  # refactor code for commands
 
-    enable_jenzel_bad_take = False
+    # enable_jenzel_bad_take = False
 
     # do nothing if bot sends message
     if msg.author == client.user:
@@ -57,12 +57,14 @@ async def on_message(msg):  # refactor code for commands
                     await msg.channel.send('Margot loves you too <3')
         case "mashallah":
             await msg.channel.send('لا إله إلا الله محمد رسول الله')
+"""  # jenzel is no fun
         case "enable jenzel bad take":
             enable_jenzel_bad_take = True
             await msg.channel.send('Jenzel bad takes enabled!')
         case "disable jenzel bad take":
             enable_jenzel_bad_take = False
             await msg.channel.send('Jenzel bad takes disabled!')
+"""
 
 client.run(os.environ['TOKEN'])  # env var from Heroku server
 # client.run(os.getenv('TOKEN'))  # env var from local .env
