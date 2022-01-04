@@ -1,22 +1,29 @@
-import asyncio
-
-import discord
 import os
-
-from Code.Handlers import *
-from Commands import *
+from typing import Optional
+import discord
+from discord import Message
+from Handlers import MusicHandler, RollingHandler, GeneralHandler
+from Commands import Command
 
 client = discord.Client()
 
+# Constant that indicates a command in discord
+INDICATOR_CONSTANT = '!'
 
+
+# printed in terminal when bot is ready to be used
 @client.event
-async def on_ready() -> None:  # printed in terminal when bot is ready to be used
+async def on_ready() -> None:
     print('Hello I am {0.user}.'.format(client))
 
 
 @client.event
 async def on_message(msg: Message) -> None:
-    cmd = handler_starter(msg)
+    # Determine if the indicator is in the message.
+    if msg.content.startswith(INDICATOR_CONSTANT):
+        cmd = handler_starter(msg)
+    else:
+        cmd = None
 
     if cmd:  # Makes sure cmd is not None.
         cmd.execute()
@@ -30,7 +37,12 @@ def handler_starter(msg: Message) -> Optional[Command]:
 
     music = MusicHandler()
     roller = RollingHandler()
+    general = GeneralHandler()
 
     music.set_next(roller)
+    roller.set_next(general)
 
     return music.Handle(msg)
+
+
+client.run(os.environ['TOKEN'])
