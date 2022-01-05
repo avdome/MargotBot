@@ -19,8 +19,13 @@ async def on_ready() -> None:
 
 @client.event
 async def on_message(msg: Message) -> None:
+
+    if bot_author(msg):
+        return None
+
     # Determine if the indicator is in the message.
     if msg.content.startswith(INDICATOR_CONSTANT):
+        msg.content = msg.content[1:].lower()
         cmd = handler_starter(msg)
     else:
         cmd = None
@@ -45,4 +50,16 @@ def handler_starter(msg: Message) -> Optional[Command]:
     return music.Handle(msg)
 
 
+def bot_author(msg: Message) -> bool:
+    """ Returns True if the author of the Message is the bot and False
+    otherwise. """
+
+    if msg.author == client.user:
+        return True
+    return False
+
+
 client.run(os.environ['TOKEN'])
+
+
+
